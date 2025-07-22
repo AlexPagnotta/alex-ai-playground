@@ -1,0 +1,21 @@
+
+FROM node:22-slim
+
+WORKDIR /app
+
+# Copy root package files
+COPY package.json package-lock.json turbo.json ./
+
+# Copy workspace package files
+COPY apps/ui/package.json ./apps/ui/
+
+# Install dependencies
+RUN npm ci
+
+# Copy application code
+COPY apps/ui ./apps/ui
+
+# Set working directory to app
+WORKDIR /app/apps/ui
+
+CMD ["npm", "run", "dev", "--", "--host"]

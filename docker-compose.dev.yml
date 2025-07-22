@@ -1,0 +1,25 @@
+services:
+  ui:
+    build:
+      context: ./
+      dockerfile: apps/ui/Dockerfile.dev
+    volumes:
+      - ./apps/ui:/app/apps/ui
+      - /app/apps/ui/node_modules
+    env_file:
+      - ./apps/ui/.env
+    ports:
+      - 3000:3000
+    depends_on:
+      - api
+
+  api:
+    build:
+      context: ./apps/api
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./apps/api:/app
+    env_file:
+      - ./apps/api/.env
+    ports:
+      - 8000:8000

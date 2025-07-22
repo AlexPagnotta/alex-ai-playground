@@ -1,0 +1,11 @@
+[project]
+name = "aix-chat-api"
+version = "0.1.0"
+description = "Backend for agents of the AIX Chat App"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi[standard]==0.115.12",
+    "pydantic-settings>=2.10.1",
+    "ruff==0.11.11",
+]

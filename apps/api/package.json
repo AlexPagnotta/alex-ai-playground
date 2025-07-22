@@ -1,0 +1,10 @@
+{
+  "name": "api",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "uv run fastapi dev",
+    "build": "echo 'Python service - no build required'",
+    "lint": "uv run ruff check .",
+    "format": "uv run ruff format ."
+  }
+}
